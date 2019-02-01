@@ -1,6 +1,6 @@
 
-NIS
-========
+Cyclecloud NIS
+==============
 
 This project sets up NIS on a CycleCloud Cluster
 
@@ -49,7 +49,7 @@ The first step is to configure the project for use with your storage locker:
      CycleCloud. The expected output looks like this:::
 
         $ cyclecloud project default_locker my_locker
-        Name: nis
+        Name: cyclecloud_nis
         Version: 1.0.0
         Default Locker: my_locker
 
@@ -75,9 +75,9 @@ C. Using this project
 
 2. The project is designed so that the NIS server provides YP services for nodes in a single cluster.
 
-3. Assign master or headnode of the cluster as the NIS server. Do this by adding the `cyclecloud-nis::default` and `cyclecloud-nis::server` specs to the master node of the cluster. You can use the _*Additional Cluster-Init"*_ feature in the cluster creation or edit UI.
+3. Assign master or headnode of the cluster as the NIS server. Do this by adding the `cyclecloud_nis::default` and `cyclecloud_nis::server` specs to the master node of the cluster. You can use the _*Additional Cluster-Init"*_ feature in the cluster creation or edit UI.
 
-4. All other cluster nodes, including the compute or execute nodes of the cluster are are assigned as NIS clients. Do this by adding the `cyclecloud-nis::default` and `cyclecloud-nis::client` specs to all other nodes of the cluster. You can use the _*Additional Cluster-Init"*_ feature in the cluster creation or edit UI.
+4. All other cluster nodes, including the compute or execute nodes of the cluster are are assigned as NIS clients. Do this by adding the `cyclecloud_nis::default` and `cyclecloud_nis::client` specs to all other nodes of the cluster. You can use the _*Additional Cluster-Init"*_ feature in the cluster creation or edit UI.
 
 5. The NIS server provides yp services for the passwd, group, and hosts tables.
 
