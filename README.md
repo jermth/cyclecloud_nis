@@ -81,15 +81,16 @@ C. Using this project
 
 5. The NIS server provides yp services for the passwd, group, and hosts tables.
 
-6. To add a new user (or hosts), login to the NIS server, add the new user locally, and run the `make` command in the /var/yp directory. This will update the YP tables. E.g:
-'''
+6. To add a new user (or hosts), login to the NIS server, add the new user locally, and run the `make` command in the /var/yp directory. This will update the YP tables:::
+
+
     $ useradd -m -b /shared/home lara
     $ cd /var/yp && make
-'''
-7. Verify that the new user is added by query with ypcat:
-'''
+
+7. Verify that the new user is added by query with ypcat:::
+
+
     $ ypcat passwd
-''' 
 
 
 
