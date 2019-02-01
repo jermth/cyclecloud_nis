@@ -19,3 +19,18 @@ end
 service "NetworkManager" do
     action :stop
 end
+
+if node["nis"]["password_authentication"]
+    service "sshd" do
+        action :nothing
+    end
+    ruby_block "Allow password SSH access" do
+      block do
+        rc = Chef::Util::FileEdit.new("/etc/ssh/sshd_config")
+        rc.search_file_replace_line(/^PasswordAuthentication no/, "PasswordAuthentication yes")
+        rc.write_file
+      end
+      not_if 'grep -q "^PasswordAuthentication yes" /etc/ssh/sshd_config'
+      notifies :restart, 'service[sshd]', :immediately 
+    end
+end
